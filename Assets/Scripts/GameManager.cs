@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public GameObject player;
     public GameObject mainCamera;
+    public GameObject Particles;
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -31,5 +32,6 @@ public class GameManager : MonoBehaviour
     {
         mainCamera.SetActive(false);
         player.SetActive(true);
+        Particles.SetActive(false);
     }
 }
