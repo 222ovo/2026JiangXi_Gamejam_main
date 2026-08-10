@@ -151,6 +151,7 @@ GameObject:
   - component: {fileID: 3019829313546751829}
   - component: {fileID: 1684028314221499589}
   - component: {fileID: 4137829605312432325}
+  - component: {fileID: 8920496505198979673}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -305,6 +306,25 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   checkRadius: 0.02
+  isGrounded: 0
+--- !u!114 &8920496505198979673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4848982700200816091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebc9cb50b410bab45b5da4b9bab6f98b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractor
+  playerCamera: {fileID: 7505186613465741873}
+  interactDistance: 3
+  interactKey: 101
+  interactLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &5098692179055488573
 GameObject:
   m_ObjectHideFlags: 0
