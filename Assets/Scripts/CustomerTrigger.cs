@@ -25,15 +25,9 @@ public class CustomerTrigger : MonoBehaviour
     
     private void UpdateCustomerState()
     {
-        Animator animator;
-        Customer customer;
         if (currentCustomer != null)
         {
-            animator = currentCustomer.GetComponent<Animator>();
-            customer = currentCustomer.GetComponent<Customer>();
-            animator.avatar = customer.idleAvatar;
-            animator.SetBool("Idle", true);
+            currentCustomer.GetComponent<Customer>().StartOrdering();
         }
-        currentCustomer.transform.Rotate(Vector3.up, 90f, Space.World);
     }
 }
