@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Ring : Item
+public class Ring : Interactable
 {
     
 }
