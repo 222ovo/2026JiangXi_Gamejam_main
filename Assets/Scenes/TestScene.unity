@@ -536,14 +536,14 @@ RectTransform:
   m_GameObject: {fileID: 816341437}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2455317, y: 3.3542414, z: 1}
+  m_LocalScale: {x: 1.0106742, y: 2.7217655, z: 0.81144}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1420850905}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3, y: -81}
+  m_AnchoredPosition: {x: 71, y: -136}
   m_SizeDelta: {x: 639.8678, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &816341439
@@ -575,8 +575,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190261
+  m_fontColor: {r: 0.7106918, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -825,8 +825,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.59119487, g: 0.59119487, b: 0.59119487, a: 0.392}
-  m_RaycastTarget: 1
+  m_Color: {r: 0.59119487, g: 0.59119487, b: 0.59119487, a: 0}
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1068,14 +1068,14 @@ RectTransform:
   m_GameObject: {fileID: 2041701772}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2455317, y: 3.3542414, z: 1}
+  m_LocalScale: {x: 0.8565521, y: 2.3067117, z: 0.6877}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1420850905}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -229.78, y: 137}
+  m_AnchoredPosition: {x: -185.99998, y: -8}
   m_SizeDelta: {x: 368.96, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2041701774
@@ -1098,7 +1098,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: SpeakerNameText
+  m_text: "\u987E\u5BA2"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 207b5cdb8eadfa64587908ae6870c3b6, type: 2}
   m_sharedMaterial: {fileID: 1470823498801436530, guid: 207b5cdb8eadfa64587908ae6870c3b6, type: 2}
@@ -1107,8 +1107,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190261
+  m_fontColor: {r: 0.70980394, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -11,7 +12,11 @@ public class DialogueManager : MonoBehaviour
 
     [Header("输入")]
     [SerializeField] private KeyCode nextKey = KeyCode.Space;
-
+    
+    [Header("字幕弹出")]
+    private Coroutine typingCoroutine;
+    private float typingSpeed = 0.05f;
+    
     private readonly Queue<DialogueLine> dialogueQueue = new Queue<DialogueLine>();
     private bool isDialoguePlaying;
 
@@ -78,23 +83,50 @@ public class DialogueManager : MonoBehaviour
 
     private void ShowNextLine()
     {
+        // 如果当前正在打字，点击时直接跳过动画显示全文（防止重复点击冲突）
+        if (typingCoroutine != null)
+        {
+            StopCoroutine(typingCoroutine);
+            // 如果有上一句没打完的字，直接显示完整
+            if (dialogueQueue.Count > 0)
+            {
+                DialogueLine line = dialogueQueue.Peek(); // 查看但不移除
+                dialogueContentText.text = line.content;
+            }
+        }
+
         if (dialogueQueue.Count == 0)
         {
             EndDialogue();
             return;
         }
 
-        DialogueLine line = dialogueQueue.Dequeue();
+        DialogueLine _line = dialogueQueue.Dequeue();
+    
+        speakerNameText.text = GetDisplaySpeakerName(_line.speaker);
+    
+        // 启动协程来实现逐字显示
+        typingCoroutine = StartCoroutine(TypeText(_line.content));
+    }
+    
+    private IEnumerator TypeText(string content)
+    {
+        dialogueContentText.text = ""; // 清空当前文本
+    
+        foreach (var character in content)
+        {
+            dialogueContentText.text += character;
+            yield return new WaitForSeconds(typingSpeed); // 等待一段时间再显示下一个字
+        }
 
-        speakerNameText.text = GetDisplaySpeakerName(line.speaker);
-        dialogueContentText.text = line.content;
+        typingCoroutine = null; // 打字完成，重置协程变量
     }
 
     private string GetDisplaySpeakerName(string speaker)
     {
         if (speaker == "独白")
         {
-            return "内心独白";
+            return "我";
         }
 
         return speaker;
