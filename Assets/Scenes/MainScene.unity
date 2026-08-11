@@ -12602,7 +12602,6 @@ GameObject:
   - component: {fileID: 1199304394}
   - component: {fileID: 1199304393}
   - component: {fileID: 1199304392}
-  - component: {fileID: 1199304396}
   m_Layer: 0
   m_Name: House_Wall (5)
   m_TagString: Untagged
@@ -12703,27 +12702,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1112346070}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1199304396
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1199304391}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2.0489547, z: 0.032579336}
-  m_Center: {x: 0.000000028169307, y: -0.4499885, z: 0.44703823}
 --- !u!1 &1218936522
 GameObject:
   m_ObjectHideFlags: 0
@@ -13139,6 +13117,10 @@ PrefabInstance:
       value: boy
       objectReference: {fileID: 0}
     - target: {fileID: 2539447733426313645, guid: 9f14d8882229b5a4aba442cef67b0aca, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539447733426313645, guid: 9f14d8882229b5a4aba442cef67b0aca, type: 3}
       propertyPath: m_TagString
       value: Customer
       objectReference: {fileID: 0}
@@ -13200,11 +13182,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4273324925819143808, guid: 9f14d8882229b5a4aba442cef67b0aca, type: 3}
       propertyPath: m_Height
-      value: 0.023974104
+      value: 0.037344698
       objectReference: {fileID: 0}
     - target: {fileID: 4273324925819143808, guid: 9f14d8882229b5a4aba442cef67b0aca, type: 3}
       propertyPath: m_Center.y
-      value: 0.01640014
+      value: 0.023085462
       objectReference: {fileID: 0}
     - target: {fileID: 6022825101126982041, guid: 9f14d8882229b5a4aba442cef67b0aca, type: 3}
       propertyPath: tasteText
@@ -25014,6 +24996,10 @@ PrefabInstance:
     - target: {fileID: 8671512671987950579, guid: 4fc6cff9b199cc74eb42a0ee95ed06ef, type: 3}
       propertyPath: m_Name
       value: Oldman
+      objectReference: {fileID: 0}
+    - target: {fileID: 8671512671987950579, guid: 4fc6cff9b199cc74eb42a0ee95ed06ef, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
