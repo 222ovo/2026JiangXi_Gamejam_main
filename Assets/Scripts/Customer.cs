@@ -30,6 +30,7 @@ public class Customer : MonoBehaviour
     public void StartOrdering()
     {
         animator.avatar = idleAvatar;
+        animator.SetBool("Idle",true);
         transform.Rotate(Vector3.up, 90f, Space.World);
         GameObject obj = Instantiate(requestPlank, requestPlankTransform.position, requestPlankTransform.rotation);
 
