@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &63150324981923516
+--- !u!1 &1023967427261171658
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,12 +8,12 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1363086776436612744}
-  - component: {fileID: 125031315690141508}
-  - component: {fileID: 8245592801297450796}
-  - component: {fileID: 6601394961848236317}
-  - component: {fileID: 8664465024484677124}
-  - component: {fileID: 3240551772379191481}
+  - component: {fileID: 1852694305310330338}
+  - component: {fileID: 4151131900787806166}
+  - component: {fileID: 8331061284225721813}
+  - component: {fileID: 5185738483298355195}
+  - component: {fileID: 9192953672308398722}
+  - component: {fileID: 7356315999526345931}
   m_Layer: 0
   m_Name: egg
   m_TagString: Untagged
@@ -21,36 +21,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1363086776436612744
+--- !u!4 &1852694305310330338
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 63150324981923516}
+  m_GameObject: {fileID: 1023967427261171658}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 82.78, y: 22.3, z: 57.8}
-  m_LocalScale: {x: 0.4461, y: 0.4461, z: 0.4461}
+  m_LocalPosition: {x: 83.119, y: 22.3, z: 57.399}
+  m_LocalScale: {x: 0.229285, y: 0.40530708, z: 0.229285}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &125031315690141508
+--- !u!33 &4151131900787806166
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 63150324981923516}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &8245592801297450796
+  m_GameObject: {fileID: 1023967427261171658}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &8331061284225721813
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 63150324981923516}
+  m_GameObject: {fileID: 1023967427261171658}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -93,27 +93,13 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &6601394961848236317
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 63150324981923516}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13154430d4fc08f4582bcab605a0d655, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PickupItem
-  itemData: {fileID: 11400000, guid: 93d9cac6b0b2a954ea4eac6c08a1c3fc, type: 2}
-  highlightType: 0
---- !u!135 &8664465024484677124
+--- !u!135 &5185738483298355195
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 63150324981923516}
+  m_GameObject: {fileID: 1023967427261171658}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -126,21 +112,21 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1.5
+  m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3240551772379191481
+--- !u!114 &9192953672308398722
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 63150324981923516}
+  m_GameObject: {fileID: 1023967427261171658}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5eb8f0cfe6a22614f8e3d21374ffa915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PickupManager
-  pickupRange: 5
+  pickupRange: 2.5
   viewAngle: 60
   pickupLayer:
     serializedVersion: 2
@@ -148,7 +134,21 @@ MonoBehaviour:
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 0
-  pickupKey: 102
+  pickupKey: 101
   pickupHintUI: {fileID: 0}
   fontSize: 36
   highlightIntensity: 1.5
+--- !u!114 &7356315999526345931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023967427261171658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13154430d4fc08f4582bcab605a0d655, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PickupItem
+  itemData: {fileID: 11400000, guid: 33f50520999608141a085edefca47ce3, type: 2}
+  highlightType: 1

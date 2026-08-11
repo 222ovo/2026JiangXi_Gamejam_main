@@ -10,7 +10,7 @@ public class PickupManager : MonoBehaviour
     public float viewAngle = 60f;                  // 视角角度（完整角度）
     public LayerMask pickupLayer = -1;             // 可拾取物品所在的层级（-1表示所有层级）
     public LayerMask obstacleLayer = 0;            // 障碍物层级（用于射线遮挡检测）
-    public KeyCode pickupKey = KeyCode.E;          // 拾取按键
+    public KeyCode pickupKey = KeyCode.F;          // 拾取按键
 
     [Header("拾取提示UI")]
     public GameObject pickupHintUI;                // 提示UI对象
