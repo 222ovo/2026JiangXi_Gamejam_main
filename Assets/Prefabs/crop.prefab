@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6601394961848236317}
   - component: {fileID: 8664465024484677124}
   - component: {fileID: 3240551772379191481}
+  - component: {fileID: 7630680754300820361}
   m_Layer: 0
   m_Name: crop
   m_TagString: Untagged
@@ -100,13 +101,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 63150324981923516}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13154430d4fc08f4582bcab605a0d655, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PickupItem
   itemData: {fileID: 11400000, guid: 8350b4c29050dd140882ed922084f16d, type: 2}
   highlightType: 0
+  isInteractable: 0
 --- !u!135 &8664465024484677124
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -135,7 +137,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 63150324981923516}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5eb8f0cfe6a22614f8e3d21374ffa915, type: 3}
   m_Name: 
@@ -148,7 +150,26 @@ MonoBehaviour:
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 0
-  pickupKey: 102
+  interactKey: 102
   pickupHintUI: {fileID: 0}
   fontSize: 36
   highlightIntensity: 1.5
+--- !u!114 &7630680754300820361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 63150324981923516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81352f55ac48b4942ab8e605045b83b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyInteractable
+  canInteract: 1
+  interactPrompt: "\u6309 F \u4EA4\u4E92"
+  pickupHintUI: {fileID: 0}
+  fontSize: 36
+  onInteract:
+    m_PersistentCalls:
+      m_Calls: []

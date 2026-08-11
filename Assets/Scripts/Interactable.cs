@@ -5,7 +5,7 @@ public class Interactable
 {
     [Header("交互设置")]
     [SerializeField] private string itemName = "可交互物品";
-    [SerializeField] private bool canInteract = true;
+    [SerializeField] public bool canInteract = true;
 
     [Header("交互事件")]
     [SerializeField] private UnityEvent onInteract;

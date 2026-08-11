@@ -5,8 +5,9 @@ public class PickupItem : MonoBehaviour
     public Item itemData;
     public HighlightType highlightType = HighlightType.Gold;
 
-    // 此脚本仅作为数据标记，高亮和提示由PickupManager统一管理
-    // 不需要额外逻辑
+    // 新增：标记此物品是否允许交互（有些物品既可以拾取也可以交互）
+    //[Header("交互设置")]
+    //public bool isInteractable = false;
 
     public enum HighlightType
     {
