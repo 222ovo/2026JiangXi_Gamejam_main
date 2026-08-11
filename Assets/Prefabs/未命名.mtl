@@ -1,0 +1,24 @@
+# Blender 5.0.1 MTL File: 'None'
+# www.blender.org
+
+newmtl Material.001
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd D:/Unity/2026JiangXi_Gamejam_main/Assets/Plank/texture_pbr_20250901.png
+map_Ns D:/Unity/2026JiangXi_Gamejam_main/Assets/Plank/texture_pbr_20250901_roughness.png
+map_refl D:/Unity/2026JiangXi_Gamejam_main/Assets/Plank/texture_pbr_20250901_metallic.png
+map_Bump -bm 1.000000 D:/Unity/2026JiangXi_Gamejam_main/Assets/Plank/texture_pbr_20250901_normal.png
+
+newmtl 材质
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.270408 0.270377 0.270012
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
