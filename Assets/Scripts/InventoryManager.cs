@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -86,6 +87,7 @@ public class InventoryManager : MonoBehaviour
             Debug.LogWarning($"物品 {item.name} 已经在背包中");
             return false;
         }
+
 
         for (int i = 0; i < items.Count; i++)
         {

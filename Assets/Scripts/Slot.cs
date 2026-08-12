@@ -46,7 +46,7 @@ public class Slot : MonoBehaviour
         {
             iconImage.sprite = item.icon;
             iconImage.enabled = true;
-            iconImage.color = Color.white;
+            //iconImage.color = Color.white;
         }
         else
         {
