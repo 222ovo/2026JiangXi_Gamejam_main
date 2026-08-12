@@ -136,9 +136,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ed38d63ebc2257438d6fe2cdb2f14d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RetroController
-  toggleKey: 282
-  startEnabled: 1
-  enabledIntensity: 1
 --- !u!1 &19753650
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,6 +344,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 97dc203646ca5414ca02352ec2a86320, type: 3}
       insertIndex: -1
       addedObject: {fileID: 62942302}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 97dc203646ca5414ca02352ec2a86320, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 62942305}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 97dc203646ca5414ca02352ec2a86320, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 62942304}
   m_SourcePrefab: {fileID: 100100000, guid: 97dc203646ca5414ca02352ec2a86320, type: 3}
 --- !u!1 &62942301 stripped
 GameObject:
@@ -374,6 +377,51 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.74002075, y: 1.2305306, z: 1}
   m_Center: {x: 0.013366699, y: 0.6260488, z: 0.0000018134069}
+--- !u!114 &62942304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62942301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eb8f0cfe6a22614f8e3d21374ffa915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PickupManager
+  pickupRange: 2.5
+  viewAngle: 60
+  pickupLayer:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  interactKey: 102
+  pickupHintUI: {fileID: 0}
+  fontSize: 36
+  interactionHintUI: {fileID: 0}
+  FontSize: 36
+  highlightIntensity: 1.5
+--- !u!114 &62942305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62942301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81352f55ac48b4942ab8e605045b83b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyInteractable
+  canInteract: 1
+  interactPrompt: "\u6309 F \u4EA4\u4E92"
+  interactionHintUI: {fileID: 0}
+  fontSize: 36
+  onInteract:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &81075660
 GameObject:
   m_ObjectHideFlags: 0
