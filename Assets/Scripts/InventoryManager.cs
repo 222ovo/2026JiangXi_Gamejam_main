@@ -82,9 +82,14 @@ public class InventoryManager : MonoBehaviour
             return false;
         }
 
-        if (items.Contains(item))
+        //if (items.Contains(item))
+        //{
+        //    Debug.LogWarning($"物品 {item.name} 已经在背包中");
+        //    return false;
+        //}
+        if (items.Any(i => i != null && i.itemID == item.itemID))
         {
-            Debug.LogWarning($"物品 {item.name} 已经在背包中");
+            Debug.LogWarning($"物品 {item.name} 数量已达上限");
             return false;
         }
 
