@@ -5,42 +5,43 @@ using UnityEngine.UI;
 
 public class PickupManager : MonoBehaviour
 {
-    [Header("¼ì²âÉèÖÃ")]
+    [Header("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
     public float pickupRange = 2.5f;
     [Range(0, 180)]
     public float viewAngle = 60f;
     public LayerMask pickupLayer = -1;
     public LayerMask obstacleLayer = 0;
-    public KeyCode interactKey = KeyCode.F;      // ½»»¥/Ê°È¡°´¼ü
+    public KeyCode interactKey = KeyCode.F;      // ï¿½ï¿½ï¿½ï¿½/Ê°È¡ï¿½ï¿½ï¿½ï¿½
+    [SerializeField] private GameObject playerObj;
 
-    //[Header("Ê°È¡ÌáÊ¾UI")]
+    //[Header("Ê°È¡ï¿½ï¿½Ê¾UI")]
     //public GameObject pickupHintUI;
     //[Range(10, 100)]
     //public float fontSize = 36f;
 
 
-    [Header("ÌáÊ¾UI£ºµÚÒ»¸öÊÇÊ°È¡£¬µÚ¶þ¸öÊÇ½»»¥")]
-    public GameObject pickupHintUI;        // Ê°È¡ÌáÊ¾£¨Èç¡°°´FÊ°È¡¡±£©
+    [Header("ï¿½ï¿½Ê¾UIï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ê°È¡ï¿½ï¿½ï¿½Ú¶ï¿½ï¿½ï¿½ï¿½Ç½ï¿½ï¿½ï¿½")]
+    public GameObject pickupHintUI;        // Ê°È¡ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ç¡°ï¿½ï¿½FÊ°È¡ï¿½ï¿½ï¿½ï¿½
     [Range(10, 100)]
     public float fontSize = 36f;
-    public GameObject interactionHintUI;   // ½»»¥ÌáÊ¾£¨Èç¡°°´F¿ªÃÅ¡±£©
+    public GameObject interactionHintUI;   // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ç¡°ï¿½ï¿½Fï¿½ï¿½ï¿½Å¡ï¿½ï¿½ï¿½
     [Range(10, 100)]
     public float FontSize = 36f;
 
 
-    [Header("¸ßÁÁÉèÖÃ")]
+    [Header("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
     public float highlightIntensity = 1.5f;
 
-    // ÄÚ²¿±äÁ¿
+    // ï¿½Ú²ï¿½ï¿½ï¿½ï¿½ï¿½
     private Camera mainCamera;
     private Transform playerTransform;
     private Text hintText;
-    private PickupItem currentPickupTarget;       // µ±Ç°¸ßÁÁµÄÄ¿±êÎïÆ·£¨¿ÉÊ°È¡£©
-    private IInteractable currentInteractTarget;  // µ±Ç°¿É½»»¥µÄÄ¿±ê
-    private GameObject currentInteractObject;     // µ±Ç°¿É½»»¥Ä¿±ê¶ÔÓ¦µÄGameObject
+    private PickupItem currentPickupTarget;       // ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½Ê°È¡ï¿½ï¿½
+    private IInteractable currentInteractTarget;  // ï¿½ï¿½Ç°ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½
+    private GameObject currentInteractObject;     // ï¿½ï¿½Ç°ï¿½É½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½GameObject
     private List<PickupItem> allPickupItems = new List<PickupItem>();
 
-    // ¸ßÁÁÑÕÉ«
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«
     private static readonly Color GoldColor = new Color(1f, 0.84f, 0f);
     private static readonly Color RedColor = new Color(1f, 0.2f, 0.2f);
 
@@ -49,16 +50,15 @@ public class PickupManager : MonoBehaviour
         mainCamera = Camera.main;
         if (mainCamera == null)
         {
-            Debug.LogError("³¡¾°ÖÐÎ´ÕÒµ½Ö÷ÉãÏñ»ú£¡");
+            Debug.LogError("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î´ï¿½Òµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
             enabled = false;
             return;
         }
 
-        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         if (playerObj != null)
             playerTransform = playerObj.transform;
         else
-            Debug.LogError("³¡¾°ÖÐÎ´ÕÒµ½TagÎª'Player'µÄÓÎÏ·¶ÔÏó£¡");
+            Debug.LogError(this.name + "need to" + "set + playerObj");
 
         if (pickupHintUI != null)
         {
@@ -73,26 +73,26 @@ public class PickupManager : MonoBehaviour
 
     private void Update()
     {
-        // Ã¿Ö¡¼ì²âµ±Ç°Ä¿±ê
+        // Ã¿Ö¡ï¿½ï¿½âµ±Ç°Ä¿ï¿½ï¿½
         UpdateTargetDetection();
 
-        // °´ÏÂF¼üÊ±£¬ÏÈ³¢ÊÔ½»»¥£¬ÔÙ³¢ÊÔÊ°È¡
+        // ï¿½ï¿½ï¿½ï¿½Fï¿½ï¿½Ê±ï¿½ï¿½ï¿½È³ï¿½ï¿½Ô½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ù³ï¿½ï¿½ï¿½Ê°È¡
         if (Input.GetKeyDown(interactKey))
         {
-            // ÓÅÏÈ½»»¥
+            // ï¿½ï¿½ï¿½È½ï¿½ï¿½ï¿½
             if (currentInteractTarget != null)
             {
                 currentInteractTarget.OnInteract();
-                // ½»»¥ºóÈç¹ûÎïÆ·±»Ïú»Ù»ò½ûÓÃ£¬ÐèÒªÇåÀí
+                // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½Ù»ï¿½ï¿½ï¿½Ã£ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½
                 if (currentInteractObject == null || !currentInteractObject.activeInHierarchy)
                 {
                     currentInteractTarget = null;
                     currentInteractObject = null;
                 }
-                return; // Ö´ÐÐ½»»¥ºó²»ÔÙÖ´ÐÐÊ°È¡
+                return; // Ö´ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½Ê°È¡
             }
 
-            // Èç¹ûÃ»ÓÐ½»»¥Ä¿±ê£¬³¢ÊÔÊ°È¡
+            // ï¿½ï¿½ï¿½Ã»ï¿½Ð½ï¿½ï¿½ï¿½Ä¿ï¿½ê£¬ï¿½ï¿½ï¿½ï¿½Ê°È¡
             if (currentPickupTarget != null)
             {
                 TryPickupCurrentTarget();
@@ -111,31 +111,31 @@ public class PickupManager : MonoBehaviour
     {
         if (playerTransform == null) return;
 
-        // ´ÓÆÁÄ»ÖÐÐÄ·¢ÉäÉäÏß
+        // ï¿½ï¿½ï¿½ï¿½Ä»ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         Ray ray = mainCamera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
         RaycastHit rayHit;
 
-        // ÉäÏß¼ì²â
+        // ï¿½ï¿½ï¿½ß¼ï¿½ï¿½
         bool rayHitSomething = Physics.Raycast(ray, out rayHit, pickupRange, pickupLayer);
 
         
-        // ÏÈÓÃÉäÏß¼ì²â£¬¿´ÊÇ·ñ»÷ÖÐÁËÄ³¸öÎïÌå
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß¼ï¿½â£¬ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         GameObject rayHitObject = null;
         if (Physics.Raycast(ray, out rayHit, pickupRange, pickupLayer))
         {
             rayHitObject = rayHit.collider.gameObject;
         }
 
-        // ±éÀúËùÓÐ¿ÉÊ°È¡ÎïÆ·£¬ÕÒµ½×î½üÇÒÂú×ãÌõ¼þµÄ
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¿ï¿½Ê°È¡ï¿½ï¿½Æ·ï¿½ï¿½ï¿½Òµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         PickupItem bestPickupTarget = null;
         float bestPickupDistance = Mathf.Infinity;
 
-        // ±éÀúËùÓÐ¿É½»»¥ÎïÆ·£¨Í¨¹ý¼ì²â³¡¾°ÖÐËùÓÐIInteractable£©
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¿É½ï¿½ï¿½ï¿½ï¿½ï¿½Æ·ï¿½ï¿½Í¨ï¿½ï¿½ï¿½ï¿½â³¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½IInteractableï¿½ï¿½
         IInteractable bestInteractTarget = null;
         GameObject bestInteractObject = null;
         float bestInteractDistance = Mathf.Infinity;
 
-        // ¼ì²âËùÓÐ¿ÉÊ°È¡ÎïÆ·
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¿ï¿½Ê°È¡ï¿½ï¿½Æ·
         foreach (PickupItem item in allPickupItems)
         {
             if (item == null || !item.gameObject.activeInHierarchy) continue;
@@ -147,7 +147,7 @@ public class PickupManager : MonoBehaviour
             float angle = Vector3.Angle(playerTransform.forward, directionToItem);
             if (angle > viewAngle / 2f) continue;
 
-            // ÉäÏß¼ì²â£º¼ì²éÊÇ·ñÓÐÕÏ°­ÎïÕÚµ²
+            // ï¿½ï¿½ï¿½ß¼ï¿½â£ºï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ï¿½ï¿½ï¿½Úµï¿½
             Vector3 dirFromCamera = item.transform.position - mainCamera.transform.position;
             RaycastHit obstacleHit;
             if (Physics.Raycast(mainCamera.transform.position, dirFromCamera, out obstacleHit, dirFromCamera.magnitude, obstacleLayer))
@@ -165,8 +165,8 @@ public class PickupManager : MonoBehaviour
             }
         }
 
-        // ¼ì²âËùÓÐ¿É½»»¥ÎïÌå
-        // ×¢Òâ£ºÕâÀïÊ¹ÓÃFindObjectsByTypeÃ¿Ö¡²éÕÒ£¬ÐÔÄÜ¿ÉÄÜÊÜÓ°Ïì¡£½¨ÒéÔÚStart/AddÊ±»º´æÁÐ±í¡£
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¿É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        // ×¢ï¿½â£ºï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½FindObjectsByTypeÃ¿Ö¡ï¿½ï¿½ï¿½Ò£ï¿½ï¿½ï¿½ï¿½Ü¿ï¿½ï¿½ï¿½ï¿½ï¿½Ó°ï¿½ì¡£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Start/AddÊ±ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½
         IInteractable[] allInteractables = FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None)
             .OfType<IInteractable>()
             .ToArray();
@@ -205,14 +205,14 @@ public class PickupManager : MonoBehaviour
             }
         }
 
-        // ¸üÐÂ½»»¥Ä¿±ê
+        // ï¿½ï¿½ï¿½Â½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½
         if (bestInteractTarget != currentInteractTarget)
         {
             currentInteractTarget = bestInteractTarget;
             currentInteractObject = bestInteractObject;
         }
 
-        // ¸üÐÂÊ°È¡Ä¿±ê
+        // ï¿½ï¿½ï¿½ï¿½Ê°È¡Ä¿ï¿½ï¿½
         if (bestPickupTarget != currentPickupTarget)
         {
             if (currentPickupTarget != null)
@@ -223,22 +223,22 @@ public class PickupManager : MonoBehaviour
                 SetItemHighlight(currentPickupTarget, true);
         }
 
-        // ¸üÐÂÌáÊ¾UI
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾UI
         UpdateHintUI();
     }
 
     private void UpdateHintUI()
     {
-        // ÏÈÒþ²ØËùÓÐÌáÊ¾
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾
         if (pickupHintUI != null)
             pickupHintUI.SetActive(false);
         if (interactionHintUI != null)
             interactionHintUI.SetActive(false);
 
-        // »¥³âÂß¼­£º½»»¥ÌáÊ¾ÓÅÏÈÓÚÊ°È¡ÌáÊ¾
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ß¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê°È¡ï¿½ï¿½Ê¾
         if (currentInteractTarget != null)
         {
-            // ÏÔÊ¾½»»¥ÌáÊ¾
+            // ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾
             if (interactionHintUI != null)
             {
                 interactionHintUI.SetActive(true);
@@ -252,14 +252,14 @@ public class PickupManager : MonoBehaviour
         }
         else if (currentPickupTarget != null)
         {
-            // ÏÔÊ¾Ê°È¡ÌáÊ¾
+            // ï¿½ï¿½Ê¾Ê°È¡ï¿½ï¿½Ê¾
             if (pickupHintUI != null)
             {
                 pickupHintUI.SetActive(true);
                 Text hintText = pickupHintUI.GetComponent<Text>();
                 if (hintText != null)
                 {
-                    hintText.text = "°´ F Ê°È¡";
+                    hintText.text = "ï¿½ï¿½ F Ê°È¡";
                     hintText.fontSize = (int)fontSize;
                 }
             }
@@ -297,7 +297,7 @@ public class PickupManager : MonoBehaviour
         InventoryManager inv = FindFirstObjectByType<InventoryManager>();
         if (inv == null)
         {
-            Debug.LogError("³¡¾°ÖÐÎ´ÕÒµ½InventoryManager£¡");
+            Debug.LogError("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î´ï¿½Òµï¿½InventoryManagerï¿½ï¿½");
             return;
         }
 
@@ -310,7 +310,7 @@ public class PickupManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("ÎïÆ·À¸ÒÑÂú£¬ÎÞ·¨Ê°È¡");
+            Debug.Log("ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ·ï¿½Ê°È¡");
         }
     }
 }
