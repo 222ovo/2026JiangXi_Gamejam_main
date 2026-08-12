@@ -3,24 +3,61 @@ using UnityEngine.UI;
 
 public class Slot : MonoBehaviour
 {
-    public Item slotItem;          // 当前槽位中的物品
-    public Image slotImage;        // 物品图标显示
+    [Header("UI组件")]
+    public Image iconImage;        // 物品图标显示
+    public Image backgroundImage;  // 背景（用于高亮颜色变化）
+
+    private Item currentItem;
+
+    private void Awake()
+    {
+        // 自动查找组件
+        if (iconImage == null)
+            iconImage = GetComponentInChildren<Image>();
+
+        if (backgroundImage == null)
+            backgroundImage = GetComponent<Image>();
+    }
 
     /// <summary>
-    /// 更新槽位显示（无数量）
+    /// 设置格子显示的物品
     /// </summary>
     public void SetupSlot(Item item)
     {
-        if (item == null)
-        {
-            // 空槽位：隐藏图标
-            slotImage.gameObject.SetActive(false);
-            slotItem = null;
-            return;
-        }
+        currentItem = item;
 
-        slotItem = item;
-        slotImage.sprite = item.itemIcon;
-        slotImage.gameObject.SetActive(true);
+        if (iconImage == null) return;
+
+        // ★ 使用 item.icon 显示物品图标
+        if (item != null && item.icon != null)
+        {
+            iconImage.sprite = item.icon;
+            iconImage.enabled = true;
+            iconImage.color = Color.white;
+        }
+        else
+        {
+            iconImage.sprite = null;
+            iconImage.enabled = false;
+        }
+    }
+
+    /// <summary>
+    /// 设置高亮状态
+    /// </summary>
+    public void SetHighlight(bool highlight, Color highlightColor)
+    {
+        if (backgroundImage != null)
+        {
+            backgroundImage.color = highlight ? highlightColor : Color.white;
+        }
+    }
+
+    /// <summary>
+    /// 获取当前格子中的物品
+    /// </summary>
+    public Item GetItem()
+    {
+        return currentItem;
     }
 }

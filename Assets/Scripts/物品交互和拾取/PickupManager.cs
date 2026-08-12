@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PickupManager : MonoBehaviour
 {
     [Header("ºÏ≤‚…Ë÷√")]
-    public float pickupRange = 5f;
+    public float pickupRange = 2.5f;
     [Range(0, 180)]
     public float viewAngle = 60f;
     public LayerMask pickupLayer = -1;
@@ -290,7 +290,6 @@ public class PickupManager : MonoBehaviour
 
         rend.SetPropertyBlock(mpb);
     }
-
     private void TryPickupCurrentTarget()
     {
         if (currentPickupTarget == null) return;
