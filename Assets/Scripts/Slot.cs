@@ -1,26 +1,40 @@
+// Slot.cs 修改后
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Slot : MonoBehaviour
 {
-    [Header("UI组件")]
-    public Image iconImage;        // 物品图标显示
-    public Image backgroundImage;  // 背景（用于高亮颜色变化）
+    public Image iconImage;      // 物品图标
+    public Image borderImage;    // 边框，默认隐藏，选中时显示
+    public Image backgroundImage; // 新增：背景图片，用于颜色变化
 
-    private Item currentItem;
+    public Item currentItem;
+
+    [Header("颜色设置")]
+    public Color selectedColor = Color.yellow;
+    public Color normalColor = Color.white;
 
     private void Awake()
     {
-        // 自动查找组件
+        // 自动查找图标
         if (iconImage == null)
             iconImage = GetComponentInChildren<Image>();
 
+        // 自动查找背景（假设背景是第一个Image组件）
         if (backgroundImage == null)
             backgroundImage = GetComponent<Image>();
+
+        // 边框默认隐藏
+        if (borderImage != null)
+            borderImage.enabled = false;
+
+        // 初始化背景颜色
+        if (backgroundImage != null)
+            backgroundImage.color = normalColor;
     }
 
     /// <summary>
-    /// 设置格子显示的物品
+    /// 设置物品显示
     /// </summary>
     public void SetupSlot(Item item)
     {
@@ -28,7 +42,6 @@ public class Slot : MonoBehaviour
 
         if (iconImage == null) return;
 
-        // ★ 使用 item.icon 显示物品图标
         if (item != null && item.icon != null)
         {
             iconImage.sprite = item.icon;
@@ -43,21 +56,20 @@ public class Slot : MonoBehaviour
     }
 
     /// <summary>
-    /// 设置高亮状态
+    /// 设置高亮状态，同时改变边框和背景颜色
     /// </summary>
-    public void SetHighlight(bool highlight, Color highlightColor)
+    public void SetHighlight(bool highlight)
     {
+        // 控制边框显示
+        if (borderImage != null)
+        {
+            borderImage.enabled = highlight;
+        }
+
+        // 控制背景颜色
         if (backgroundImage != null)
         {
-            backgroundImage.color = highlight ? highlightColor : Color.white;
+            backgroundImage.color = highlight ? selectedColor : normalColor;
         }
-    }
-
-    /// <summary>
-    /// 获取当前格子中的物品
-    /// </summary>
-    public Item GetItem()
-    {
-        return currentItem;
     }
 }

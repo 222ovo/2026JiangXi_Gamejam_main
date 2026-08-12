@@ -108,14 +108,15 @@ public class InventoryManager : MonoBehaviour
         if (index < 0 || index >= slots.Length) return;
         if (selectedIndex == index) return;
 
+        // 取消原选中格子的高亮
         if (slots[selectedIndex] != null)
-            slots[selectedIndex].SetHighlight(false, normalColor);
+            slots[selectedIndex].SetHighlight(false);
 
+        // 选中新格子
         selectedIndex = index;
         if (slots[selectedIndex] != null)
-            slots[selectedIndex].SetHighlight(true, selectedColor);
+            slots[selectedIndex].SetHighlight(true);
     }
-
     private void DropCurrentItem()
     {
         if (items[selectedIndex] == null)
@@ -212,7 +213,7 @@ public class InventoryManager : MonoBehaviour
             if (slots[i] != null)
             {
                 slots[i].SetupSlot(items[i]);
-                slots[i].SetHighlight(i == selectedIndex, i == selectedIndex ? selectedColor : normalColor);
+                slots[i].SetHighlight(i == selectedIndex);  // 只控制边框
             }
         }
     }
